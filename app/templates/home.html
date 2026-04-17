@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>PCPstream</h2>
+        <a href="{% url 'uplode' %}">
+            <button class="upload-btn">Upload</button>
+        </a>
+    </div>
+
+    <!-- Video Grid -->
+    <div class="video-container">
+        {% for i in all %}
+        <div class="video-card">
+
+            <!-- Thumbnail -->
+            <img src="{{ i.profile_pic.url }}" class="thumbnail">
+
+            <!-- Video -->
+            <video controls class="video">
+                <source src="{{ i.video.url }}">
+            </video>
+
+            <!-- Info -->
+            <p class="title">{{ i.username }}</p>
+
+        </div>
+        {% endfor %}
+    </div>
+<script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

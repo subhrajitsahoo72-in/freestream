@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pcpstream</title>
+    <link rel="stylesheet" href="{% static 'css/uplode.css' %}">
+</head>
+<body>
+    <div class="container">
+        <form method="post" enctype="multipart/form-data" class="card">
+            {% csrf_token %}
+        
+            <h2>Upload Content</h2>
+        
+            <div class="input-group">
+                <label>Upload Thumbnail</label>
+                <input type="file" required name="profile_pic">
+            </div>
+        
+            <div class="input-group">
+                <label>Upload Video</label>
+                <input type="file" required name="video">
+            </div>
+
+            <div class="input-group">
+                <label>enter name you want</label>
+                <input type="text" required name="name">
+            </div>
+        
+            <button type="submit">Upload</button>
+        </form>
+    </div>
+</body>
+</html>
